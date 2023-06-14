@@ -154,8 +154,8 @@
                     </div>
                     <div style="overflow:auto;">
                         <div style="float:right;">
-                        <button type="button" id="prevBtn" onclick="nextPrev(-1)">Previous</button>
-                        <button type="button" id="nextBtn" onclick="nextPrev(1)">Next</button>
+                            <button type="button" id="prevBtn" onclick="nextPrev(-1)">Previous</button>
+                            <button type="button" id="nextBtn" onclick="nextPrev(1)">Next</button>
                         </div>
                     </div>
                 </form>
@@ -219,10 +219,6 @@ function validateForm() {
       // and set the current valid status to false
       valid = false;
     }
-  }
-  // If the valid status is true, mark the step as finished and valid:
-  if (valid) {
-    document.getElementsByClassName("step")[currentTab].className += " finish";
   }
   return valid; // return the valid status
 }
