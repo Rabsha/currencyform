@@ -201,7 +201,7 @@
                             <div class="row">
                                 <div class="col-md-12">
                                     <div class="feildmade">
-                                        <select name="Amount" id="Amount" name="Amount" class="form-select" title="Please select an amount." required="">
+                                        <select name="Amount" id="Amount" class="form-select" title="Please select an amount." required="">
                                             <option value="" selected="selected">Amount</option>
                                             <option class="under" value="Under 2,000">Under 2,000</option>
                                             <option class="over" value="2,000 - 5,000">2,000 - 5,000</option>
