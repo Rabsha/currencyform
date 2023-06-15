@@ -12,7 +12,7 @@
     <div class="multistepform">
         <div class="container">
             <div class="formone">
-                <form id="regForm" action="/action_page.php">
+                <form id="regForm" method="post">
                     <h1>Award-Winning Currency Transfers</h1>
                     <!-- One "tab" for each step in the form: -->
                     <div class="tab">
@@ -144,8 +144,8 @@
                         <div class="form-group">
                             <div class="row">
                                 <div class="col-md-12">
-                                    <div class="feildmade">
-                                        <input type="text" value="(UK) +44" disabled>
+                                    <div class="feildmade myfeild">
+                                        <input type="text" value="(UK) +44" class="smallwidth" disabled>
                                         <input name="Telephone" type="tel" pattern="^[^0-9]*([0-9][^0-9]*){1,15}$" id="Telephone" placeholder="Telephone" maxlength="20" class="input required form-control joint-input" title="Please enter a valid number." required="">
                                     </div>
                                 </div>
