@@ -1,3 +1,116 @@
+<?php
+    use PHPMailer\PHPMailer\PHPMailer;
+    use PHPMailer\PHPMailer\Exception;
+
+    require 'PHPMailer/src/Exception.php';
+    require 'PHPMailer/src/PHPMailer.php';
+    require 'PHPMailer/src/SMTP.php';
+
+    if(isset($_POST['submit']))
+    {
+
+        $currencyfrom   = $_POST['currencyfrom'];
+        $currencyto     = $_POST['currencyto'];
+        $Amount         = $_POST['Amount'];
+        $Service        = $_POST['ServiceName'];
+        $EmailAddress   = $_POST['EmailAddress'];
+        $FirstName      = $_POST['FirstName'];
+        $LastName       = $_POST['LastName'];
+        $TelePhone      = $_POST['Code'].'-'.$_POST['TeleNumber'];
+
+        $FullName = $FirstName.$LastName;
+
+        //Create an instance; passing `true` enables exceptions
+        $mail = new PHPMailer(true);
+        
+        try {
+            //Server settings
+            // $mail->SMTPDebug = SMTP::DEBUG_SERVER;                      //Enable verbose debug output
+            $mail->isSMTP();                                            //Send using SMTP
+            $mail->Host       = 'smtp.hostinger.com';                     //Set the SMTP server to send through
+            $mail->SMTPAuth   = true;                                   //Enable SMTP authentication
+            $mail->Username   = 'info@clearemit.com';                     //SMTP username
+            $mail->Password   = 'Whyisthat@2023';                       //SMTP password
+            $mail->SMTPSecure = PHPMailer::ENCRYPTION_SMTPS;            //Enable implicit TLS encryption
+            $mail->Port       = 465;                                    //TCP port to connect to; use 587 if you have set `SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS`
+        
+            //Recipients
+            $mail->setFrom('info@clearemit.com', 'Clearemit');
+            $mail->addAddress($EmailAddress, $FullName);     //Add a recipien
+            $mail->AddCC('clearemit@gmail.com', 'Clearemit');
+        
+            //Content
+            $mail->isHTML(true);
+            $mail->Subject = 'Get a Quote';
+            $mail->Body    = "
+            <div style='font-family: arial; border: 1px solid #d3d3d366; border-radius: 10px;'>
+                <table style='width:100%; '>
+                    <tr>
+                        <td>
+                            <div style='border-radius: 10px 10px 0px 0px; align-item: center; background: #fcf9fe; padding: 40px 0;text-align:center;'>
+                                <img src='https://clearemit.com/wp-content/uploads/2023/01/Black-logo-no-background.png' width='150px'; />
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div style='color: black; padding: 0px 15px;'>
+                                <br>
+                                <br>
+                                    Dear $FullName,
+                                <br>
+                                <br>
+                                    Thank you for submitting your Quotes to Clearemit. We appreciate your time and interest in our services.
+                                <br>
+                                <br>
+                                    We have received the following information from your submission:
+                                <br>
+                                <br>  
+                                    CurrencyFrom: $currencyfrom
+                                    <br>
+                                    Currency To: $currencyfrom
+                                    <br>
+                                    Amount: $Amount
+                                    <br>
+                                    Service: $Service
+                                    <br>
+                                    Email Address: $EmailAddress
+                                    <br>
+                                    First Name: $FirstName
+                                    <br>
+                                    Last Name: $LastName
+                                    <br>
+                                    TelePhone: $TelePhone
+                                    <br>
+                                <br>
+                                    Our team will review the information you have provided, and we will get back to you as soon as possible with any further instructions or updates.
+                                    <br>
+                                <br>
+                                    Thank you once again for choosing Clearemit. We look forward to assisting you further.
+                                    <br>
+                                <br>
+                                    Best regards,
+                                    <br>
+                                    Clearemit Administration Team
+                                    <br>
+                                <br>
+                                    Feel free to customize the email template according to your specific requirements and branding.
+                                <br>
+                                <br>
+                            </div>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+            ";
+        
+            $mail->send();
+            header("Location:thankyou.php");
+        } catch (Exception $e) {
+            echo "Message could not be sent. Mailer Error: {$mail->ErrorInfo}";
+        }
+    }
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -20,7 +133,7 @@
                             <div class="row">
                                 <div class="col-md-6">
                                     <div class="feildmade">
-                                        <select name="CurrencySell" id="CurrencySell" class="form-select" title="Please select a currency." required="">
+                                        <select name="CurrencySell" name="currencyfrom" id="CurrencySell" class="form-select" title="Please select a currency." required="">
                                             <option value="">Currency From</option>
                                             <option value="GBP">Pound Sterling</option>
                                             <option value="EUR">Euro</option>
@@ -52,7 +165,7 @@
                                 </div>
                                 <div class="col-md-6">
                                     <div class="feildmade">
-                                        <select name="CurrencySell" id="CurrencySell" class="form-select" title="Please select a currency." required="">
+                                        <select name="CurrencySell" name="currencyto" id="CurrencySell" class="form-select" title="Please select a currency." required="">
                                             <option value="">Currency From</option>
                                             <option value="GBP">Pound Sterling</option>
                                             <option value="EUR">Euro</option>
@@ -88,7 +201,7 @@
                             <div class="row">
                                 <div class="col-md-12">
                                     <div class="feildmade">
-                                        <select name="Amount" id="Amount" class="form-select" title="Please select an amount." required="">
+                                        <select name="Amount" id="Amount" name="Amount" class="form-select" title="Please select an amount." required="">
                                             <option value="" selected="selected">Amount</option>
                                             <option class="under" value="Under 2,000">Under 2,000</option>
                                             <option class="over" value="2,000 - 5,000">2,000 - 5,000</option>
@@ -107,10 +220,10 @@
                             <div class="row">
                                 <div class="col-md-12">
                                     <div class="feildmade">
-                                        <select name="Service" id="Service" class="form-select" title="Please select a service." required="">
+                                        <select name="ServiceName" id="Service" class="form-select" required="">
                                             <option value="">Choose Service</option>
-                                            <option value="Transfer" title="For changing a larger amount of currency and sending by international transfer. Buying a property, making an investment, bringing money home, etc." selected="">Currency Transfer</option>
-                                            <option value="Travel Money" title="Foreign currency in cash delivered to your home by secure Royal Mail delivery.">Holiday Money (Cash)</option>
+                                            <option value="Transfer">Currency Transfer</option>
+                                            <option value="Travel Money">Holiday Money (Cash)</option>
                                         </select>
                                     </div>
                                 </div>
@@ -120,7 +233,7 @@
                             <div class="row">
                                 <div class="col-md-12">
                                     <div class="feildmade">
-                                        <input type="email" class="form-control" placeholder="Email Address">
+                                        <input type="email" class="form-control" name="EmailAddress" placeholder="Email Address">
                                     </div>
                                 </div>
                             </div>
@@ -131,12 +244,12 @@
                             <div class="row">
                                 <div class="col-md-6">
                                     <div class="feildmade">
-                                        <input type="text" class="form-control" placeholder="First Name">
+                                        <input type="text" class="form-control" name="FirstName" placeholder="First Name">
                                     </div>
                                 </div>
                                 <div class="col-md-6">
                                     <div class="feildmade">
-                                        <input type="text" class="form-control" placeholder="Surname">
+                                        <input type="text" class="form-control" name="LastName" placeholder="Surname">
                                     </div>
                                 </div>
                             </div>
@@ -146,7 +259,8 @@
                                 <div class="col-md-12">
                                     <div class="feildmade myfeild">
                                         <input type="text" value="(UK) +44" class="smallwidth" disabled>
-                                        <input name="Telephone" type="tel" pattern="^[^0-9]*([0-9][^0-9]*){1,15}$" id="Telephone" placeholder="Telephone" maxlength="20" class="input required form-control joint-input" title="Please enter a valid number." required="">
+                                        <input type="hidden" value="(UK) +44" name="Code" class="smallwidth">
+                                        <input type="tel" name="TeleNumber" pattern="^[^0-9]*([0-9][^0-9]*){1,15}$" id="Telephone" placeholder="Telephone" maxlength="20" class="input required form-control joint-input" title="Please enter a valid number." required="">
                                     </div>
                                 </div>
                             </div>
@@ -179,6 +293,8 @@ function showTab(n) {
   }
   if (n == (x.length - 1)) {
     document.getElementById("nextBtn").innerHTML = "Submit";
+    document.getElementById("nextBtn").type = "submit";
+    document.getElementById("nextBtn").name = 'submit';
   } else {
     document.getElementById("nextBtn").innerHTML = "Next";
   }
