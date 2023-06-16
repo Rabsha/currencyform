@@ -94,8 +94,18 @@
                                     <br>
                                     Clearemit Administration Team
                                     <br>
-                                <br>
-                                    Feel free to customize the email template according to your specific requirements and branding.
+                                    <br>
+                                    97 High Street North
+                                    East Ham, London
+                                    E6 1HZ
+                                    <br>
+                                    Tel: +44 2034414041
+                                    <br>
+                                    Mobile: +44 746666 6921
+                                    <br>
+                                    email: info@clearemit.com 
+                                    <br>
+                                    Web: <a href='www.clearemit.com'>www.clearemit.com</a>
                                 <br>
                                 <br>
                             </div>
@@ -127,7 +137,7 @@
         <div class="container">
             <div class="formone">
                 <form id="regForm" method="post">
-                    <h1>Award-Winning Currency Transfers</h1>
+                    <h1>Currency Exchange & Transfer</h1>
                     <!-- One "tab" for each step in the form: -->
                     <div class="tab">
                         <div class="form-group">
@@ -167,7 +177,7 @@
                                 <div class="col-md-6">
                                     <div class="feildmade">
                                         <select name="CurrencySell" name="currencyto" id="CurrencySell" class="form-select" title="Please select a currency." required="">
-                                            <option value="">Currency From</option>
+                                            <option value="">Currency To</option>
                                             <option value="GBP">Pound Sterling</option>
                                             <option value="EUR">Euro</option>
                                             <option value="USD">US Dollar</option>
@@ -202,17 +212,7 @@
                             <div class="row">
                                 <div class="col-md-12">
                                     <div class="feildmade">
-                                        <select name="Amount" id="Amount" class="form-select" title="Please select an amount." required="">
-                                            <option value="" selected="selected">Amount</option>
-                                            <option class="under" value="Under 2,000">Under 2,000</option>
-                                            <option class="over" value="2,000 - 5,000">2,000 - 5,000</option>
-                                            <option class="over" value="5,000 - 10,000">5,000 - 10,000</option>
-                                            <option class="over" value="10,000 - 25,000">10,000 - 25,000</option>
-                                            <option class="over" value="25,000 - 50,000">25,000 - 50,000</option>
-                                            <option class="over" value="50,000 - 100,000">50,000 - 100,000</option>
-                                            <option class="over" value="100,000 - 250,000">100,000 - 250,000</option>
-                                            <option class="over" value="Over 250,000">Over 250,000</option>
-                                        </select>
+                                        <input type="number" name="Amount" id="Amount" class="form-control" placeholder="Enter Amount">
                                     </div>
                                 </div>
                             </div>
@@ -245,12 +245,12 @@
                             <div class="row">
                                 <div class="col-md-6">
                                     <div class="feildmade">
-                                        <input type="text" class="form-control" name="FirstName" placeholder="First Name">
+                                        <input type="text" class="form-control" name="FirstName" placeholder="First Name" required>
                                     </div>
                                 </div>
                                 <div class="col-md-6">
                                     <div class="feildmade">
-                                        <input type="text" class="form-control" name="LastName" placeholder="Surname">
+                                        <input type="text" class="form-control" name="LastName" placeholder="Surname" required>
                                     </div>
                                 </div>
                             </div>
