@@ -250,7 +250,7 @@
                                 </div>
                                 <div class="col-md-6">
                                     <div class="feildmade">
-                                        <input type="text" class="form-control" name="LastName" placeholder="Surname" required>
+                                        <input type="text" class="form-control" name="LastName" placeholder="Last Name" required>
                                     </div>
                                 </div>
                             </div>
