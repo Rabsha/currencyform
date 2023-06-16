@@ -234,7 +234,7 @@
                             <div class="row">
                                 <div class="col-md-12">
                                     <div class="feildmade">
-                                        <input type="email" class="form-control" name="EmailAddress" placeholder="Email Address">
+                                        <input type="email" class="form-control" name="EmailAddress" placeholder="Email Address" required>
                                     </div>
                                 </div>
                             </div>
