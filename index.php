@@ -144,7 +144,7 @@
                             <div class="row">
                                 <div class="col-md-6">
                                     <div class="feildmade">
-                                        <select name="CurrencySell" name="currencyfrom" id="CurrencySell" class="form-select" title="Please select a currency." required="">
+                                        <select name="currencyfrom" id="CurrencySell" class="form-select" title="Please select a currency." required="">
                                             <option value="">Currency From</option>
                                             <option value="GBP">Pound Sterling</option>
                                             <option value="EUR">Euro</option>
@@ -176,7 +176,7 @@
                                 </div>
                                 <div class="col-md-6">
                                     <div class="feildmade">
-                                        <select name="CurrencySell" name="currencyto" id="CurrencySell" class="form-select" title="Please select a currency." required="">
+                                        <select name="currencyto" id="CurrencySell" class="form-select" title="Please select a currency." required="">
                                             <option value="">Currency To</option>
                                             <option value="GBP">Pound Sterling</option>
                                             <option value="EUR">Euro</option>
