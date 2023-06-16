@@ -69,7 +69,7 @@
                                 <br>  
                                     CurrencyFrom: $currencyfrom
                                     <br>
-                                    Currency To: $currencyfrom
+                                    Currency To: $currencyto
                                     <br>
                                     Amount: $Amount
                                     <br>
