@@ -101,8 +101,6 @@
                                     <br>
                                     Tel: +44 2034414041
                                     <br>
-                                    Mobile: +44 746666 6921
-                                    <br>
                                     email: info@clearemit.com 
                                     <br>
                                     Web: <a href='www.clearemit.com'>www.clearemit.com</a>
